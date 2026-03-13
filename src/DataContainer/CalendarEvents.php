@@ -63,7 +63,7 @@ class CalendarEvents
     #[AsCallback(table: 'tl_calendar_events', target: 'list.sorting.child_record')]
     public function listEvents(array $arrRow): string
     {
-        $markup = (new \tl_calendar_events())->listEvents($arrRow);
+        $markup = (new \tl_calendar_events())->listEvents($arrRow, $arrRow['title']);
 
         if ($arrRow['enableBookingForm']) {
             $booking = $this->framework->getAdapter(CalendarEventsModel::class)->findById($arrRow['id']);
